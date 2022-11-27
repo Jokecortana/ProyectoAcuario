@@ -44,7 +44,7 @@ GLFWmonitor *monitors;
 void getResolution(void);
 
 // camera
-Camera camera(glm::vec3(0.0f, 10.0f, 90.0f));
+Camera camera(glm::vec3(0.0f, 100.0f, 500.0f));
 float MovementSpeed = 0.1f;
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
@@ -265,7 +265,11 @@ int main()
 	// load models
 	// -----------
 	Model piso("resources/objects/piso/piso.obj");
-	Model fuente("resources/objects/Fuente/fuente.obj");
+	Model fuente("resources/objects/Fuente1/f1.obj");
+	Model valla("resources/objects/Vallas/valla1.obj");
+	Model valla2("resources/objects/Vallas2/valla2.obj");
+	Model crab("resources/objects/Crab1/crab1.obj");
+	Model ping("resources/objects/pinguino1/pingu.obj");
 
 
 
@@ -417,28 +421,68 @@ int main()
 		piso.Draw(staticShader);
 
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -70.0f));
+		/*Fuente
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.050f));
+		staticShader.setMat4("model", model);
+		fuente.Draw(staticShader);*/
+
+		//Fuente
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(5.0f));
 		staticShader.setMat4("model", model);
-		//casaVieja.Draw(staticShader);
+		fuente.Draw(staticShader);
 
-		//CASA DE BRUJAS
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-120.0f, 0.0f, 30.0f)); //Creando la casa de brujas
-		model = glm::scale(model, glm::vec3(3.0f));
+
+		//Valla pinguinos
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(750.0f, 0.0f, 200.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
-		//casaBrujas.Draw(staticShader);
+		valla.Draw(staticShader);
 
-		//Mi cubo
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(20.0f, 0.0f, 100.0f));
+		//Valla cangrejos
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-50.0f, 0.0f, 100.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
-	//	miCubo.Draw(staticShader);
+		valla2.Draw(staticShader);
 
-
-		//CasatTec
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 0.0f, 200.0f));
+		//cangrejos
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 450.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
 		staticShader.setMat4("model", model);
-		//casaTec.Draw(staticShader);
+		crab.Draw(staticShader);
 
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(30.0f, 0.0f, 410.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		crab.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(50.0f, 0.0f, 480.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		crab.Draw(staticShader);
+
+		//pinguinos
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(400.0f, 0.0f, 290.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		ping.Draw(staticShader);
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(450.0f, 0.0f, 250.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		ping.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(390.0f, 0.0f, 270.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		ping.Draw(staticShader);
 
 
 		// -------------------------------------------------------------------------------------------------------------------------
