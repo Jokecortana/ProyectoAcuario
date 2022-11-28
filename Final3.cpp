@@ -59,7 +59,7 @@ lastFrame = 0.0f;
 //Lighting
 glm::vec3 lightPosition(0.0f, 4.0f, -10.0f);
 glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
-
+	
 // posiciones
 //float x = 0.0f;
 //float y = 0.0f;
@@ -269,7 +269,8 @@ int main()
 	Model valla("resources/objects/Vallas/valla1.obj");
 	Model valla2("resources/objects/Vallas2/valla2.obj");
 	Model crab("resources/objects/Crab1/crab1.obj");
-	Model ping("resources/objects/pinguino1/pingu.obj");
+	Model ping("resources/objects/pinguino1/pingu.obj");	
+	Model pez("resources/objects/pez/.obj");
 
 
 
@@ -484,7 +485,13 @@ int main()
 		staticShader.setMat4("model", model);
 		ping.Draw(staticShader);
 
-
+		//pez
+		
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-390.0f, 0.0f, 270.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(5.0f));
+		staticShader.setMat4("model", model);
+		pez.Draw(staticShader);
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Carro
 		// -------------------------------------------------------------------------------------------------------------------------
