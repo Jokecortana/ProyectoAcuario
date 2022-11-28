@@ -270,6 +270,9 @@ int main()
 	Model valla2("resources/objects/Vallas2/valla2.obj");
 	Model crab("resources/objects/Crab1/crab1.obj");
 	Model ping("resources/objects/pinguino1/pingu.obj");
+	Model roc("resources/objects/Roca/roc1.obj");
+	Model rocap("resources/objects/RocaP/rocap.obj");
+	Model rocap1("resources/objects/RocaP1/rocap1.obj");
 
 
 
@@ -464,6 +467,21 @@ int main()
 		staticShader.setMat4("model", model);
 		crab.Draw(staticShader);
 
+		//ROCAS cangrejos
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(80.0f, 0.0f, 460.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		roc.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(60.0f, 0.0f, 460.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		roc.Draw(staticShader);
+
+
+
 		//pinguinos
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(400.0f, 0.0f, 290.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -484,6 +502,18 @@ int main()
 		staticShader.setMat4("model", model);
 		ping.Draw(staticShader);
 
+		//rocaPinguinos
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(390.0f, 0.0f, 320.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		rocap.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(390.0f, 0.0f, 330.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		rocap1.Draw(staticShader);
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Carro
