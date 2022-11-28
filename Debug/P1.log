@@ -2,11 +2,11 @@
 c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\include\shader_m.h(44): warning C4101: 'e': variable local sin referencia
 c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\include\modelanim.h(104): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
 c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\include\modelanim.h(520): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(727): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(728): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(732): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(733): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(735): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(736): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(744): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(769): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(770): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(774): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(775): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(777): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(778): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\arkra\desktop\unam\2023-i\ihc\proyecto\project\proj\p1\final3.cpp(786): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
   P1.vcxproj -> C:\Users\arkra\Desktop\UNAM\2023-I\IHC\PROYECTO\Project\Proj\Debug\P1.exe

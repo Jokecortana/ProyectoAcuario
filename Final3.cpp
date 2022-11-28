@@ -265,6 +265,7 @@ int main()
 	// load models
 	// -----------
 	Model piso("resources/objects/piso/piso.obj");
+	//Modelos Dylan
 	Model fuente("resources/objects/Fuente1/f1.obj");
 	Model valla("resources/objects/Vallas/valla1.obj");
 	Model valla2("resources/objects/Vallas2/valla2.obj");
@@ -274,13 +275,32 @@ int main()
 	Model rocap("resources/objects/RocaP/rocap.obj");
 	Model rocap1("resources/objects/RocaP1/rocap1.obj");
 
+	//Fin modelos Dylan
 
 
-	ModelAnim animacionPersonaje("resources/objects/Personaje1/PersonajeBrazo.dae");
-	animacionPersonaje.initShaders(animShader.ID);
+	//Modelos Ariadna
+	
+	Model fish1("resources/objects/Fish/fish1.obj");
+	Model fish2("resources/objects/Fish/fish2.obj");
+	Model fish3("resources/objects/Fish/fish3.obj");
 
-	ModelAnim ninja("resources/objects/ZombieWalk/ZombieWalk.dae");
-	ninja.initShaders(animShader.ID);
+
+
+	//Fin Modelos Ariadna
+
+
+
+
+	//Modelos Miranda
+
+	//Model tiburon1("resources/objects/Shark002OBJ/Correctshark002.obj");
+	Model tiburon2("resources/objects/shark_obj/shark_01.obj");
+
+	
+
+
+	//Fin modelos Miranda
+
 
 	//Inicialización de KeyFrames
 	for (int i = 0; i < MAX_FRAMES; i++)
@@ -383,26 +403,6 @@ int main()
 		animShader.setVec3("light.direction", lightDirection);
 		animShader.setVec3("viewPos", camera.Position);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-40.3f, 1.75f, 0.3f)); // translate it down so it's at the center of the scene
-		model = glm::scale(model, glm::vec3(1.2f));	// it's a bit too big for our scene, so scale it down
-		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		animShader.setMat4("model", model);
-		//animacionPersonaje.Draw(animShader);
-
-		//PARASIT
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 0.0f, -20.0f));
-		animShader.setMat4("model", model);
-		//parasit.Draw(animShader);
-
-		// -------------------------------------------------------------------------------------------------------------------------
-		// Segundo Personaje Animacion
-		// -------------------------------------------------------------------------------------------------------------------------
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(40.3f, 1.75f, 0.3f)); // translate it down so it's at the center of the scene
-		model = glm::scale(model, glm::vec3(0.5f));	// it's a bit too big for our scene, so scale it down
-		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		animShader.setMat4("model", model);
-		//ninja.Draw(animShader);
 
 		// ------------------------------------------------------------------------------------------------------------------
 		// Escenario
@@ -424,11 +424,7 @@ int main()
 		piso.Draw(staticShader);
 
 
-		/*Fuente
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.050f));
-		staticShader.setMat4("model", model);
-		fuente.Draw(staticShader);*/
+		//Modelos Dylan
 
 		//Fuente
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
@@ -514,6 +510,52 @@ int main()
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		rocap1.Draw(staticShader);
+
+		//Fin Modelos Dylan
+
+
+		//Modelos Miranda
+		/*
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-390.0f, 0.0f, 270.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(5.0f));
+		staticShader.setMat4("model", model);
+		tiburon1.Draw(staticShader);
+		*/
+		//tiburon2
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-390.0f, 10.0f, 270.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		tiburon2.Draw(staticShader);
+
+	
+
+		//Fin Modelos Miranda*/
+
+
+
+
+	//Modelos Ariadna
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(50.0f, 5.0f, -200.0f));
+		model = glm::scale(model, glm::vec3(4.0f));
+		staticShader.setMat4("model", model);
+		fish1.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(60.0f, 5.0f, -200.0f));
+		model = glm::scale(model, glm::vec3(4.0f));
+		staticShader.setMat4("model", model);
+		fish2.Draw(staticShader); 
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(70.0f, 5.0f, -200.0f));
+		model = glm::scale(model, glm::vec3(4.0f));
+		staticShader.setMat4("model", model);
+		fish3.Draw(staticShader);
+		
+
+
+	//Fin Modelos Ariadna
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Carro
