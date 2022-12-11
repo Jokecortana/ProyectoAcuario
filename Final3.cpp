@@ -281,6 +281,7 @@ int main()
 	Model carro("resources/objects/helados/carro.obj");
 	Model bin("resources/objects/bote/bin.obj");
 	Model jaula("resources/objects/jaula/cge.obj");
+	Model tienda("resources/objects/tienda/store.obj");
 
 
 
@@ -633,11 +634,18 @@ int main()
 		bin.Draw(staticShader);
 
 		//jaula
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-350.0f, 0.0f, 100.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-410.0f, 0.0f, 250.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(40.0f));
 		staticShader.setMat4("model", model);
 		jaula.Draw(staticShader);
+
+		//tienda
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-400.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(13.0f));
+		staticShader.setMat4("model", model);
+		tienda.Draw(staticShader);
 
 
 		//Fin Modelos Dylan
