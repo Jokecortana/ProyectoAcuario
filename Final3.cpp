@@ -280,10 +280,23 @@ int main()
 	Model rest("resources/objects/restrooms/rest.obj");
 	Model carro("resources/objects/helados/carro.obj");
 	Model bin("resources/objects/bote/bin.obj");
+	Model jaula("resources/objects/jaula/cge.obj");
 
+
+
+/*
 	ModelAnim employe("resources/objects/empleado/Thoughtful Head Shake.dae");
 	employe.initShaders(animShader.ID); //aÃ±adir el objeto al shader de animacion
 
+	ModelAnim p1("resources/objects/p1/Sitting Talking.dae");
+	p1.initShaders(animShader.ID); //aÃ±adir el objeto al shader de animacion
+
+	ModelAnim p2("resources/objects/p2/Talking.dae");
+	p2.initShaders(animShader.ID); //aÃ±adir el objeto al shader de animacion
+
+	ModelAnim p3("resources/objects/p3/Talking.dae");
+	p3.initShaders(animShader.ID); //aÃ±adir el objeto al shader de animacion
+	*/
 	//Fin modelos Dylan
 
 
@@ -412,14 +425,36 @@ int main()
 		animShader.setVec3("light.direction", lightDirection);
 		animShader.setVec3("viewPos", camera.Position);
 
-		//empleado
+		/*empleado
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(420.0f, 16.0f, 300.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.2f));
 		animShader.setMat4("model", model);
-		//employe.Draw(animShader);    COMENTADA TEMPORALMENTE PARA CARGAR ESCENARIO MAS RAPIDO
+		//employe.Draw(animShader);
 
 
+		//p1
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(330.0f, 20.0f, 400.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.2f));
+		animShader.setMat4("model", model);
+		//p1.Draw(animShader);
+
+		//p2
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(320.0f, 16.0f, 350.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.2f));
+		animShader.setMat4("model", model);
+		//p2.Draw(animShader);
+
+		//p3
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(320.0f, 16.0f, 300.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.2f));
+		animShader.setMat4("model", model);
+		//p3.Draw(animShader);
+
+		*/
 		// ------------------------------------------------------------------------------------------------------------------
 		// Escenario
 		// -------------------------------------------------------------------------------------------------------------------------
@@ -597,7 +632,12 @@ int main()
 		staticShader.setMat4("model", model);
 		bin.Draw(staticShader);
 
-		
+		//jaula
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-350.0f, 0.0f, 100.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(40.0f));
+		staticShader.setMat4("model", model);
+		jaula.Draw(staticShader);
 
 
 		//Fin Modelos Dylan
@@ -613,7 +653,7 @@ int main()
 		*/
 		//tiburon2
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-390.0f, 10.0f, 270.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-500.0f, 10.0f, -400.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
