@@ -284,6 +284,11 @@ int main()
 	Model tienda("resources/objects/tienda/store.obj");
 	Model gate("resources/objects/puerta/gate.obj");
 	Model vallae("resources/objects/vallap/vallae.obj");
+	Model estanque("resources/objects/estanque/estanq.obj");
+	Model pool("resources/objects/pool/poolp.obj");
+	Model plant1("resources/objects/plant1/plant1.obj");
+	Model plant2("resources/objects/plant2/plant2.obj");
+	Model roc2("resources/objects/rocanieve/roc2.obj");
 
 
 
@@ -526,6 +531,33 @@ int main()
 		roc.Draw(staticShader);
 
 
+		//estanque cangrejos
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-310.0f, 0.0f, 450.0f));
+		model = glm::scale(model, glm::vec3(0.125f));
+		staticShader.setMat4("model", model);
+		estanque.Draw(staticShader);
+
+
+		//plantas cangrejos
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-350.0f, 0.0f, 430.0f));
+		model = glm::scale(model, glm::vec3(0.003f));
+		staticShader.setMat4("model", model);
+		plant1.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-460.0f, 0.0f, 440.0f));
+		model = glm::scale(model, glm::vec3(0.003f));
+		staticShader.setMat4("model", model);
+		plant1.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-350.0f, 0.0f, 450.0f));
+		model = glm::scale(model, glm::vec3(0.1f));
+		staticShader.setMat4("model", model);
+		plant2.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-290.0f, 0.0f, 470.0f));
+		model = glm::scale(model, glm::vec3(0.1f));
+		staticShader.setMat4("model", model);
+		plant2.Draw(staticShader);
 
 		//pinguinos
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(400.0f, 0.0f, 90.0f));
@@ -559,6 +591,23 @@ int main()
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		rocap1.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(425.0f, 0.0f, 100.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		roc2.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(375.0f, 0.0f, 80.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		roc2.Draw(staticShader);
+
+
+		//Alberca pinguinos
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(390.0f, 0.0f, 150.0f));
+		model = glm::scale(model, glm::vec3(10.0f));
+		staticShader.setMat4("model", model);
+		pool.Draw(staticShader);
 
 
 		//cafeteria
