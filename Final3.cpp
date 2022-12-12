@@ -282,6 +282,8 @@ int main()
 	Model bin("resources/objects/bote/bin.obj");
 	Model jaula("resources/objects/jaula/cge.obj");
 	Model tienda("resources/objects/tienda/store.obj");
+	Model gate("resources/objects/puerta/gate.obj");
+	Model vallae("resources/objects/vallap/vallae.obj");
 
 
 
@@ -646,6 +648,87 @@ int main()
 		model = glm::scale(model, glm::vec3(13.0f));
 		staticShader.setMat4("model", model);
 		tienda.Draw(staticShader);
+
+		//puerta entrada
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 500.0f));
+		model = glm::scale(model, glm::vec3(2.0f));
+		staticShader.setMat4("model", model);
+		gate.Draw(staticShader);
+
+
+		//valla entrada
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(151.0f, 0.0f, 500.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(302.0f, 0.0f, 500.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-151.0f, 0.0f, 500.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-302.0f, 0.0f, 500.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-420.5f, 0.0f, 500.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(410.5f, 0.0f, 500.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+
+
+		//puerta salida
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(420.0f, 0.0f, -480.0f));
+		model = glm::scale(model, glm::vec3(2.0f));
+		staticShader.setMat4("model", model);
+		gate.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(270.0f, 0.0f, -480.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(120.0f, 0.0f, -480.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-30.0f, 0.0f, -480.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-180.0f, 0.0f, -480.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-330.0f, 0.0f, -480.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-420.0f, 0.0f, -480.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		vallae.Draw(staticShader);
+
+
+
+
 
 
 		//Fin Modelos Dylan
