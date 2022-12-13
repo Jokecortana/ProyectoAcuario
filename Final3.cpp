@@ -85,6 +85,48 @@ incZ = 0.0f,
 rotInc = 0.0f,
 giroMonitoInc = 0.0f;
 
+//variables mov pinguinos
+float movPingu_x = 0.0f,
+movPingu_z = 0.0f,
+orientaPingu = 0.0f,
+movPingu_x2 = 400.0f,
+movPingu_z2 = 30.0f,
+orientaPingu2 = 0.0f,
+animalaspingu=0.0f,
+alaspingu=0.0f,
+animpataspingu=0.0f,
+pataspingu=0.0f;
+
+//variables cangrejos
+float movcrab_x = -450.0f,
+movcrab_z = 450.0f,
+movcrab_y=0.0f,
+orientacrab = 0.0f,
+animpatascrab = 0.0f,
+patasbcrab = 0.0f,
+animpinzascrab = 0.0f,
+pinzascrab = 0.0f;
+
+//animaciones pinguinos
+bool animacionP = true,
+reco1 = true,
+reco2 = false,
+reco3 = false,
+reco4 = false,
+animacionP2 = true,
+reco5 = true,
+reco6 = false,
+reco7 = false,
+reco8 = false,
+reco9 = false;
+
+//animacion cangrejos
+bool animacionC = false,
+r1 = true,
+r2 = false,
+r3 = false,
+r4 = false;
+
 #define MAX_FRAMES 9
 int i_max_steps = 60;
 int i_curr_steps = 0;
@@ -180,6 +222,202 @@ void animate(void)
 	{
 		movAuto_z += 3.0f;
 	}
+
+
+
+	/*animacion pinguinos
+	if (animacionP) {
+		if (reco1) {
+			movPingu_x = 0.0f;
+			movPingu_z += 3.0f;
+			orientaPingu = 0.0f;
+			if (movPingu_z >= 100) {
+				reco1 = false;
+				reco2 = true;
+
+			}
+
+		}
+
+		if (reco2) {
+			movPingu_x -= 3.0f;
+			movPingu_z = 100.0f;
+			orientaPingu = -90.0f;
+			if (movPingu_x <= -100) {
+				reco2 = false;
+				reco3 = true;
+
+			}
+
+		}
+
+		if (reco3) {
+			movPingu_x += 2.0f;
+			movPingu_z -= 1.0f;
+			orientaPingu = 153.44f;
+			if (movPingu_x >= 0.0f&&movPingu_z >= 0.0f) {
+				reco3 = false;
+				reco1 = true;
+
+			}
+		}
+
+
+
+
+
+	}*/
+
+	if (animacionP2) {
+		//animacion alas
+
+		if (animalaspingu == 0) {//CAMBIAR PIVOTE
+			alaspingu += 1.0f;
+			if (alaspingu >= 15) {
+				animalaspingu = 1;
+			}
+		}
+		else {
+			alaspingu -= 1.0f;
+			if (alaspingu <= -15) {
+				animalaspingu = 0;
+			}
+		}
+
+			//animacion patas
+
+			if (animpataspingu == 0) {
+				pataspingu += 1.0f;
+				if (pataspingu >= 25) {
+					animpataspingu = 1;
+				}
+			}
+			else {
+				pataspingu -= 1.0f;
+				if (pataspingu <= -25) {
+					animpataspingu = 0;
+				}
+			}
+
+
+
+
+		//animacion recorrido
+		if (reco5) {
+			movPingu_x2 = 400.0f;
+			movPingu_z2 += 1.0f;
+			orientaPingu2 = 0.0f;
+			if (movPingu_z2 >= 80.0f) {
+				reco5 = false;
+				reco6 = true;
+
+			}
+
+		}
+
+		if (reco6) {
+			movPingu_x2 += 1.0f;
+			movPingu_z2 = 80.0f;
+			orientaPingu2 = 90.0f;
+			if (movPingu_x2 >= 435.0f) {
+				reco6 = false;
+				reco7 = true;
+
+			}
+
+		}
+	
+		if (reco7) {
+			movPingu_x2 -= 0.7f;
+			movPingu_z2 -= 1.0f;
+			orientaPingu2 = -125.0f;
+			if (movPingu_x2 <= 400.0f&&movPingu_z2 <= 30.0f) {
+				reco7 = false;
+				reco5 = true;
+
+			}
+
+		}
+
+
+
+
+
+
+
+
+
+
+	}
+
+
+
+	if (animacionC) {
+		//animacion patas
+		if (animpatascrab == 0) {//CAMBIAR PIVOTE
+			patasbcrab += 1.0f;
+			if (patasbcrab >= 2) {
+				animpatascrab = 1;
+			}
+		}
+		else {
+			patasbcrab -= 1.0f;
+			if (patasbcrab <= -2) {
+				animpatascrab = 0;
+			}
+		}
+
+		//animacion pinzas
+
+		if (animpinzascrab == 0) {
+			pinzascrab += 1.0f;
+			if (pinzascrab >= 1) {
+				animpinzascrab = 1;
+			}
+		}
+		else {
+			pinzascrab -= 1.0f;
+			if (pinzascrab <= -1) {
+				animpinzascrab = 0;
+			}
+		}
+
+
+
+		if (r1) {
+			movcrab_x += 17.0f;
+			movcrab_z -= 1.0f;
+			orientacrab = -45.0f;
+			if (movcrab_x <= -400 && movcrab_z >= 400) {
+				r1 = false;
+				r2 = true;
+			}
+
+
+
+
+		}
+
+
+
+
+
+	}
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
 }
 
 void getResolution()
@@ -290,6 +528,22 @@ int main()
 	Model plant2("resources/objects/plant2/plant2.obj");
 	Model roc2("resources/objects/rocanieve/roc2.obj");
 
+
+	//pinguino en partes
+	Model pingu("resources/objects/pinguino2/pingu.obj");
+	Model pingupi("resources/objects/pinguino2/pieizq.obj");
+	Model pingupd("resources/objects/pinguino2/pieder.obj");
+	Model pinguai("resources/objects/pinguino2/alaizq.obj");
+	Model pinguad("resources/objects/pinguino2/alader.obj");
+
+
+
+	//cangrejo partes
+	Model crab2("resources/objects/crab2/crb2.obj");
+	Model patascrabd("resources/objects/crab2/patasder.obj");
+	Model patascrabi("resources/objects/crab2/patasizq.obj");
+	Model pinzascrabd("resources/objects/crab2/pinzader.obj");
+	Model pinzascrabi("resources/objects/crab2/pinzaizq.obj");
 
 
 /*
@@ -501,11 +755,7 @@ int main()
 		valla2.Draw(staticShader);
 
 		//cangrejos
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-450.0f, 0.0f, 450.0f));
-		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(1.0f));
-		staticShader.setMat4("model", model);
-		crab.Draw(staticShader);
+
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-430.0f, 0.0f, 410.0f));
 		model = glm::scale(model, glm::vec3(1.0f));
@@ -516,6 +766,44 @@ int main()
 		model = glm::scale(model, glm::vec3(1.0f));
 		staticShader.setMat4("model", model);
 		crab.Draw(staticShader);
+
+
+		//cangrejo animado
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcrab_x, movcrab_y, movcrab_z));
+		model = glm::rotate(model, glm::radians(orientacrab), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		crab2.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcrab_x, movcrab_y, movcrab_z));
+		model = glm::rotate(model, glm::radians(patasbcrab), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(orientacrab), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		patascrabd.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcrab_x, movcrab_y, movcrab_z));
+		model = glm::rotate(model, glm::radians(patasbcrab), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(orientacrab), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		patascrabi.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcrab_x, movcrab_y, movcrab_z));
+		model = glm::rotate(model, glm::radians(pinzascrab), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(orientacrab), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		pinzascrabd.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcrab_x, movcrab_y, movcrab_z));
+		model = glm::rotate(model, glm::radians(pinzascrab), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(orientacrab), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		pinzascrabi.Draw(staticShader);
+
+
 
 		//ROCAS cangrejos
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-390.0f, 0.0f, 460.0f));
@@ -560,12 +848,12 @@ int main()
 		plant2.Draw(staticShader);
 
 		//pinguinos
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(400.0f, 0.0f, 90.0f));
+		/*model = glm::translate(glm::mat4(1.0f), glm::vec3(400.0f, 0.0f, 90.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		ping.Draw(staticShader);
-
+		*/
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(450.0f, 0.0f, 70.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -578,6 +866,76 @@ int main()
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		ping.Draw(staticShader);
+
+
+		//pinguinoanimado 1
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x, 0.0f, movPingu_z));
+		model = glm::rotate(model, glm::radians(orientaPingu), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		pingu.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x, 0.0f, movPingu_z));
+		model = glm::rotate(model, glm::radians(orientaPingu), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		pingupi.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x, 0.0f, movPingu_z));
+		model = glm::rotate(model, glm::radians(orientaPingu), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		pingupd.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x, 0.0f, movPingu_z));
+		model = glm::rotate(model, glm::radians(orientaPingu), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		pinguai.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x, 0.0f, movPingu_z));
+		model = glm::rotate(model, glm::radians(orientaPingu), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		pinguad.Draw(staticShader);
+
+
+
+		//pinguinoanimado 2
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
+		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		pingu.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
+		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-pataspingu), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		pingupi.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
+		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(pataspingu), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		pingupd.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
+		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-alaspingu), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		pinguai.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
+		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(alaspingu), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		pinguad.Draw(staticShader);
+
 
 		//rocaPinguinos
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(390.0f, 0.0f, -5.0f));
@@ -592,12 +950,12 @@ int main()
 		staticShader.setMat4("model", model);
 		rocap1.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(425.0f, 0.0f, 100.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(425.0f, -5.0f, 100.0f));
 		model = glm::scale(model, glm::vec3(1.5f));
 		staticShader.setMat4("model", model);
 		roc2.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(375.0f, 0.0f, 80.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(375.0f, -5.0f, 80.0f));
 		model = glm::scale(model, glm::vec3(1.5f));
 		staticShader.setMat4("model", model);
 		roc2.Draw(staticShader);
@@ -988,6 +1346,17 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 	//Car animation
 	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
 		animacion ^= true;
+
+
+
+
+	//animacion cangrejo
+
+	if (key == GLFW_KEY_5 && action == GLFW_PRESS)
+		animacionC ^= true;
+
+	if (key == GLFW_KEY_6 && action == GLFW_PRESS)
+		animacionC ^= false;
 
 	//To play KeyFrame animation 
 	if (key == GLFW_KEY_P && action == GLFW_PRESS)
