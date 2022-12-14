@@ -93,6 +93,7 @@ incZ = 0.0f,
 rotInc = 0.0f,
 giroMonitoInc = 0.0f;
 
+<<<<<<< HEAD
 //variables mov pinguinos
 float movPingu_x = 0.0f,
 movPingu_z = 0.0f,
@@ -156,6 +157,8 @@ r4 = false;
 
 
 
+=======
+>>>>>>> a3d6e5ef31c680d1eced8547fe8b4061f458863e
 #define MAX_FRAMES 9
 int i_max_steps = 60;
 int i_curr_steps = 0;
@@ -246,6 +249,7 @@ void animate(void)
 		}
 	}
 
+<<<<<<< HEAD
 
 
 
@@ -418,6 +422,8 @@ void animate(void)
 
 
 
+=======
+>>>>>>> a3d6e5ef31c680d1eced8547fe8b4061f458863e
 	//Vehículo
 	if (animacion)
 	{
@@ -558,31 +564,7 @@ int main()
 	Model bin("resources/objects/bote/bin.obj");
 	Model jaula("resources/objects/jaula/cge.obj");
 	Model tienda("resources/objects/tienda/store.obj");
-	Model gate("resources/objects/puerta/gate.obj");
-	Model vallae("resources/objects/vallap/vallae.obj");
-	Model estanque("resources/objects/estanque/estanq.obj");
-	Model pool("resources/objects/pool/poolp.obj");
-	Model plant1("resources/objects/plant1/plant1.obj");
-	Model plant2("resources/objects/plant2/plant2.obj");
-	Model roc2("resources/objects/rocanieve/roc2.obj");
-
-
-	//pinguino en partes
-	Model pingu("resources/objects/pinguino2/pingu.obj");
-	Model pingupi("resources/objects/pinguino2/pieizq.obj");
-	Model pingupd("resources/objects/pinguino2/pieder.obj");
-	Model pinguai("resources/objects/pinguino2/alaizq.obj");
-	Model pinguad("resources/objects/pinguino2/alader.obj");
-
-
-
-	//cangrejo partes
-	Model crab2("resources/objects/crab2/crb2.obj");
-	Model patascrabd("resources/objects/crab2/patasder.obj");
-	Model patascrabi("resources/objects/crab2/patasizq.obj");
-	Model pinzascrabd("resources/objects/crab2/pinzader.obj");
-	Model pinzascrabi("resources/objects/crab2/pinzaizq.obj");
-
+	
 
 
 	//carro basura
@@ -626,7 +608,13 @@ int main()
 
 		//Model tiburon1("resources/objects/Shark002OBJ/Correctshark002.obj");
 	Model tiburon2("resources/objects/shark_obj/shark_01.obj");
+<<<<<<< HEAD
 
+=======
+	Model delfin("resources/objects/delfin/10014_dolphin_v2_max2011_it2.obj");
+	Model shark("resources/objects/shark/Shark_OBJ.obj");
+	
+>>>>>>> a3d6e5ef31c680d1eced8547fe8b4061f458863e
 
 
 
@@ -833,7 +821,11 @@ int main()
 		valla2.Draw(staticShader);
 
 		//cangrejos
-
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-450.0f, 0.0f, 450.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		crab.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-430.0f, 0.0f, 410.0f));
 		model = glm::scale(model, glm::vec3(1.0f));
@@ -844,44 +836,6 @@ int main()
 		model = glm::scale(model, glm::vec3(1.0f));
 		staticShader.setMat4("model", model);
 		crab.Draw(staticShader);
-
-
-		//cangrejo animado
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcrab_x, movcrab_y, movcrab_z));
-		model = glm::rotate(model, glm::radians(orientacrab), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(1.0f));
-		staticShader.setMat4("model", model);
-		crab2.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcrab_x, movcrab_y, movcrab_z));
-		model = glm::rotate(model, glm::radians(patasbcrab), glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::rotate(model, glm::radians(orientacrab), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(1.0f));
-		staticShader.setMat4("model", model);
-		patascrabd.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcrab_x, movcrab_y, movcrab_z));
-		model = glm::rotate(model, glm::radians(patasbcrab), glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::rotate(model, glm::radians(orientacrab), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(1.0f));
-		staticShader.setMat4("model", model);
-		patascrabi.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcrab_x, movcrab_y, movcrab_z));
-		model = glm::rotate(model, glm::radians(pinzascrab), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(orientacrab), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(1.0f));
-		staticShader.setMat4("model", model);
-		pinzascrabd.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcrab_x, movcrab_y, movcrab_z));
-		model = glm::rotate(model, glm::radians(pinzascrab), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(orientacrab), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(1.0f));
-		staticShader.setMat4("model", model);
-		pinzascrabi.Draw(staticShader);
-
-
 
 		//ROCAS cangrejos
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-390.0f, 0.0f, 460.0f));
@@ -897,41 +851,14 @@ int main()
 		roc.Draw(staticShader);
 
 
-		//estanque cangrejos
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-310.0f, 0.0f, 450.0f));
-		model = glm::scale(model, glm::vec3(0.125f));
-		staticShader.setMat4("model", model);
-		estanque.Draw(staticShader);
-
-
-		//plantas cangrejos
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-350.0f, 0.0f, 430.0f));
-		model = glm::scale(model, glm::vec3(0.003f));
-		staticShader.setMat4("model", model);
-		plant1.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-460.0f, 0.0f, 440.0f));
-		model = glm::scale(model, glm::vec3(0.003f));
-		staticShader.setMat4("model", model);
-		plant1.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-350.0f, 0.0f, 450.0f));
-		model = glm::scale(model, glm::vec3(0.1f));
-		staticShader.setMat4("model", model);
-		plant2.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-290.0f, 0.0f, 470.0f));
-		model = glm::scale(model, glm::vec3(0.1f));
-		staticShader.setMat4("model", model);
-		plant2.Draw(staticShader);
 
 		//pinguinos
-		/*model = glm::translate(glm::mat4(1.0f), glm::vec3(400.0f, 0.0f, 90.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(400.0f, 0.0f, 90.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		ping.Draw(staticShader);
-		*/
+
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(450.0f, 0.0f, 70.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -945,76 +872,6 @@ int main()
 		staticShader.setMat4("model", model);
 		ping.Draw(staticShader);
 
-
-		//pinguinoanimado 1
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x, 0.0f, movPingu_z));
-		model = glm::rotate(model, glm::radians(orientaPingu), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.5f));
-		staticShader.setMat4("model", model);
-		pingu.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x, 0.0f, movPingu_z));
-		model = glm::rotate(model, glm::radians(orientaPingu), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.5f));
-		staticShader.setMat4("model", model);
-		pingupi.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x, 0.0f, movPingu_z));
-		model = glm::rotate(model, glm::radians(orientaPingu), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.5f));
-		staticShader.setMat4("model", model);
-		pingupd.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x, 0.0f, movPingu_z));
-		model = glm::rotate(model, glm::radians(orientaPingu), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.5f));
-		staticShader.setMat4("model", model);
-		pinguai.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x, 0.0f, movPingu_z));
-		model = glm::rotate(model, glm::radians(orientaPingu), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.5f));
-		staticShader.setMat4("model", model);
-		pinguad.Draw(staticShader);
-
-
-
-		//pinguinoanimado 2
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
-		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.5f));
-		staticShader.setMat4("model", model);
-		pingu.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
-		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(-pataspingu), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.5f));
-		staticShader.setMat4("model", model);
-		pingupi.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
-		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(pataspingu), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.5f));
-		staticShader.setMat4("model", model);
-		pingupd.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
-		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(-alaspingu), glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::scale(model, glm::vec3(0.5f));
-		staticShader.setMat4("model", model);
-		pinguai.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(movPingu_x2, 0.0f, movPingu_z2));
-		model = glm::rotate(model, glm::radians(orientaPingu2), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(alaspingu), glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::scale(model, glm::vec3(0.5f));
-		staticShader.setMat4("model", model);
-		pinguad.Draw(staticShader);
-
-
 		//rocaPinguinos
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(390.0f, 0.0f, -5.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -1027,23 +884,6 @@ int main()
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		rocap1.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(425.0f, -5.0f, 100.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		roc2.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(375.0f, -5.0f, 80.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		roc2.Draw(staticShader);
-
-
-		//Alberca pinguinos
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(390.0f, 0.0f, 150.0f));
-		model = glm::scale(model, glm::vec3(10.0f));
-		staticShader.setMat4("model", model);
-		pool.Draw(staticShader);
 
 
 		//cafeteria
@@ -1134,87 +974,6 @@ int main()
 		staticShader.setMat4("model", model);
 		tienda.Draw(staticShader);
 
-		//puerta entrada
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 500.0f));
-		model = glm::scale(model, glm::vec3(2.0f));
-		staticShader.setMat4("model", model);
-		gate.Draw(staticShader);
-
-
-		//valla entrada
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(151.0f, 0.0f, 500.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		vallae.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(302.0f, 0.0f, 500.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		vallae.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-151.0f, 0.0f, 500.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		vallae.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-302.0f, 0.0f, 500.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		vallae.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-420.5f, 0.0f, 500.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		vallae.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(410.5f, 0.0f, 500.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		vallae.Draw(staticShader);
-
-
-
-		//puerta salida
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(420.0f, 0.0f, -480.0f));
-		model = glm::scale(model, glm::vec3(2.0f));
-		staticShader.setMat4("model", model);
-		gate.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(270.0f, 0.0f, -480.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		vallae.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(120.0f, 0.0f, -480.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		vallae.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-30.0f, 0.0f, -480.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		vallae.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-180.0f, 0.0f, -480.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		vallae.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-330.0f, 0.0f, -480.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		vallae.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-420.0f, 0.0f, -480.0f));
-		model = glm::scale(model, glm::vec3(1.5f));
-		staticShader.setMat4("model", model);
-		vallae.Draw(staticShader);
-
-
-
-
-
 
 		//Fin Modelos Dylan
 
@@ -1229,14 +988,36 @@ int main()
 		*/
 		//tiburon2
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-500.0f, 10.0f, -400.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-500.0f, 10.0f, -500.0f));
 		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.5f));
+		model = glm::scale(model, glm::vec3(0.4f));
 		staticShader.setMat4("model", model);
 		tiburon2.Draw(staticShader);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a3d6e5ef31c680d1eced8547fe8b4061f458863e
 
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-500.0f, 10.0f, -300.0f));
+		model = glm::rotate(model, glm::radians(270.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.4f));
+		staticShader.setMat4("model", model);
+		delfin.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-500.0f, 10.0f, -200.0f));
+		model = glm::rotate(model, glm::radians(-270.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.4f));
+		staticShader.setMat4("model", model);
+		delfin.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-500.0f, 10.0f, -100.0f));
+		model = glm::rotate(model, glm::radians(-270.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(2.5f));
+		staticShader.setMat4("model", model);
+		shark.Draw(staticShader);
+
+		
 		//Fin Modelos Miranda*/
 
 
