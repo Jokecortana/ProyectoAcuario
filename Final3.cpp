@@ -27,7 +27,15 @@
 #include <Skybox.h>
 #include <iostream>
 
-//#pragma comment(lib, "winmm.lib")
+//audio
+
+#include <irrKlang.h>
+using namespace irrklang; 
+
+#pragma comment(lib, "winmm.lib")
+bool	sound = true,
+		sound2 = true,
+		sound3 = true;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -92,23 +100,23 @@ orientaPingu = 0.0f,
 movPingu_x2 = 400.0f,
 movPingu_z2 = 30.0f,
 orientaPingu2 = 0.0f,
-animalaspingu=0.0f,
-alaspingu=0.0f,
-animpataspingu=0.0f,
-pataspingu=0.0f;
+animalaspingu = 0.0f,
+alaspingu = 0.0f,
+animpataspingu = 0.0f,
+pataspingu = 0.0f;
 
 //variables cangrejos
 float movcrab_x = -450.0f,
 movcrab_z = 450.0f,
-movcrab_y=0.0f,
+movcrab_y = 0.0f,
 orientacrab = 0.0f,
 animpatascrab = 0.0f,
 patasbcrab = 0.0f,
 animpinzascrab = 0.0f,
 pinzascrab = 0.0f,
-movcarrito_x=0.0f,
-movcarrito_z=450.0f,
-orientacarrito=0.0f;
+movcarrito_x = 0.0f,
+movcarrito_z = 450.0f,
+orientacarrito = 0.0f;
 
 //animaciones pinguinos
 bool animacionP = true,
@@ -141,6 +149,12 @@ r1 = true,
 r2 = false,
 r3 = false,
 r4 = false;
+
+
+
+
+
+
 
 #define MAX_FRAMES 9
 int i_max_steps = 60;
@@ -232,56 +246,8 @@ void animate(void)
 		}
 	}
 
-	//Vehículo
-	if (animacion)
-	{
-		movAuto_z += 3.0f;
-	}
 
 
-
-	/*animacion pinguinos
-	if (animacionP) {
-		if (reco1) {
-			movPingu_x = 0.0f;
-			movPingu_z += 3.0f;
-			orientaPingu = 0.0f;
-			if (movPingu_z >= 100) {
-				reco1 = false;
-				reco2 = true;
-
-			}
-
-		}
-
-		if (reco2) {
-			movPingu_x -= 3.0f;
-			movPingu_z = 100.0f;
-			orientaPingu = -90.0f;
-			if (movPingu_x <= -100) {
-				reco2 = false;
-				reco3 = true;
-
-			}
-
-		}
-
-		if (reco3) {
-			movPingu_x += 2.0f;
-			movPingu_z -= 1.0f;
-			orientaPingu = 153.44f;
-			if (movPingu_x >= 0.0f&&movPingu_z >= 0.0f) {
-				reco3 = false;
-				reco1 = true;
-
-			}
-		}
-
-
-
-
-
-	}*/
 
 	if (animacionP2) {
 		//animacion alas
@@ -299,20 +265,20 @@ void animate(void)
 			}
 		}
 
-			//animacion patas
+		//animacion patas
 
-			if (animpataspingu == 0) {
-				pataspingu += 1.0f;
-				if (pataspingu >= 25) {
-					animpataspingu = 1;
-				}
+		if (animpataspingu == 0) {
+			pataspingu += 1.0f;
+			if (pataspingu >= 25) {
+				animpataspingu = 1;
 			}
-			else {
-				pataspingu -= 1.0f;
-				if (pataspingu <= -25) {
-					animpataspingu = 0;
-				}
+		}
+		else {
+			pataspingu -= 1.0f;
+			if (pataspingu <= -25) {
+				animpataspingu = 0;
 			}
+		}
 
 
 
@@ -341,7 +307,7 @@ void animate(void)
 			}
 
 		}
-	
+
 		if (reco7) {
 			movPingu_x2 -= 0.7f;
 			movPingu_z2 -= 1.0f;
@@ -414,137 +380,12 @@ void animate(void)
 		}
 
 
-	
 
 
 	}
 
 
 
-	if (animacionB) {
-		
-		if (re1) {
-
-			movcarrito_x = 0.0f;
-			movcarrito_z -= 3.0f;
-			orientacarrito = 0.0f;
-			if (movcarrito_z <= 300) {
-				re1 = false;
-				re2 = true;
-			}
-		}
-
-
-
-
-
-			if (re2) {
-				movcarrito_x += 1.5f;
-				movcarrito_z -= 1.0f;
-				orientacarrito = 33.69f;
-				if (movcarrito_x >= 150) {
-					re2 = false;
-					re3 = true;
-				}
-
-
-
-
-			}
-
-
-
-
-			if (re3) {
-				movcarrito_x = 150.0f;
-				movcarrito_z -= 1.0f;
-				orientacarrito = 90.0f;
-				if (movcarrito_z <= 0) {
-					re3 = false;
-					re4 = true;
-				}
-
-
-
-			}
-
-			if (re4) {
-				movcarrito_x = 150.0f;
-				movcarrito_z -= 1.0f;
-				orientacarrito = 90.0f;
-				if (movcarrito_z <= -150) {
-					re4 = false;
-					re5 = true;
-				}
-
-
-
-			}
-
-			if (re5) {
-				movcarrito_x -= 0.6f;
-				movcarrito_z -= 1.0f;
-				orientacarrito = 120.97f;
-				if (movcarrito_x <= 0) {
-					re5 = false;
-					re6 = true;
-				}
-
-
-
-			}
-
-			if (re6) {
-				movcarrito_x -= 0.6f;
-				movcarrito_z += 1.0f;
-				orientacarrito = 239.03f;
-				if (movcarrito_x <= -150.0) {
-					re6 = false;
-					re7 = true;
-				}
-
-
-
-			}
-
-			if (re7) {
-				movcarrito_x = -150.6f;
-				movcarrito_z += 1.0f;
-				orientacarrito = 270.0f;
-				if (movcarrito_z >= 0.0) {
-					re7 = false;
-					re8 = true;
-				}
-
-
-
-			}
-
-			if (re8) {
-				movcarrito_x = -150.0f;
-				movcarrito_z += 1.0f;
-				orientacarrito = 270.00f;
-				if (movcarrito_z >= 200.0) {
-					re8 = false;
-					re9 = true;
-				}
-
-
-
-			}
-
-			if (re9) {
-				movcarrito_x += 1.5f;
-				movcarrito_z += 1.0f;
-				orientacarrito = 323.13f;
-				if (movcarrito_x >= 0.0) {
-					re9 = false;
-					re2 = true;
-				}
-
-
-
-			}
 
 
 
@@ -557,7 +398,6 @@ void animate(void)
 
 
 
-		}
 
 
 
@@ -568,6 +408,21 @@ void animate(void)
 
 
 
+
+
+
+
+
+
+
+
+
+
+	//Vehículo
+	if (animacion)
+	{
+		movAuto_z += 3.0f;
+	}
 }
 
 void getResolution()
@@ -578,9 +433,42 @@ void getResolution()
 	SCR_HEIGHT = (mode->height) - 80;
 }
 
+//audio
+/*
+void music(){
+	if (sound) {
+		bool played = PlaySound(L"Media/aves.wav", NULL, SND_LOOP | SND_ASYNC);
+		sound = false;
+	}
+}
+
+void music2() {
+	if (sound) {
+		bool played = PlaySound(L"Media/pinguino.wav", NULL, SND_LOOP | SND_ASYNC);
+		sound2 = false;
+	}
+}
+
+void music3() {
+	if (sound) {
+		bool played = PlaySound(L"Media/delfin.wav", NULL, SND_LOOP | SND_ASYNC);
+		sound3 = false;
+	}
+}
+*/
 
 int main()
 {
+
+	//audio de olas, ambiental para todo el acuario 
+
+	ISoundEngine* engine = createIrrKlangDevice();
+	if (!engine)
+		return 0;
+	engine->play2D("Media/mar.wav", true);
+	
+
+
 	// glfw: initialize and configure
 	// ------------------------------
 	glfwInit();
@@ -704,45 +592,45 @@ int main()
 	Model llantasi("resources/objects/carrito/llanta3.obj");
 	Model llantaid("resources/objects/carrito/llanta4.obj");
 
-/*
-	ModelAnim employe("resources/objects/empleado/Thoughtful Head Shake.dae");
-	employe.initShaders(animShader.ID); //aÃ±adir el objeto al shader de animacion
+	/*
+		ModelAnim employe("resources/objects/empleado/Thoughtful Head Shake.dae");
+		employe.initShaders(animShader.ID); //aÃ±adir el objeto al shader de animacion
 
-	ModelAnim p1("resources/objects/p1/Sitting Talking.dae");
-	p1.initShaders(animShader.ID); //aÃ±adir el objeto al shader de animacion
+		ModelAnim p1("resources/objects/p1/Sitting Talking.dae");
+		p1.initShaders(animShader.ID); //aÃ±adir el objeto al shader de animacion
 
-	ModelAnim p2("resources/objects/p2/Talking.dae");
-	p2.initShaders(animShader.ID); //aÃ±adir el objeto al shader de animacion
+		ModelAnim p2("resources/objects/p2/Talking.dae");
+		p2.initShaders(animShader.ID); //aÃ±adir el objeto al shader de animacion
 
-	ModelAnim p3("resources/objects/p3/Talking.dae");
-	p3.initShaders(animShader.ID); //aÃ±adir el objeto al shader de animacion
-	*/
-	//Fin modelos Dylan
+		ModelAnim p3("resources/objects/p3/Talking.dae");
+		p3.initShaders(animShader.ID); //aÃ±adir el objeto al shader de animacion
+		*/
+		//Fin modelos Dylan
 
 
-	//Modelos Ariadna
-	
+		//Modelos Ariadna
 	Model fish1("resources/objects/Fish/fish1.obj");
 	Model fish2("resources/objects/Fish/fish2.obj");
 	Model fish3("resources/objects/Fish/fish3.obj");
-
-
-
-	//Fin Modelos Ariadna
+	Model ave1("resources/objects/aves/ave1.obj");
+	Model ave2("resources/objects/aves/ave2.obj");
+	Model ave3("resources/objects/aves/ave3.obj");
+	Model ave4("resources/objects/aves/ave4.obj");
+	Model comida("resources/objects/comida/comida.obj");
+	Model pecera("resources/objects/pecera/pecera.obj");
 
 
 
 
 	//Modelos Miranda
 
-	//Model tiburon1("resources/objects/Shark002OBJ/Correctshark002.obj");
+		//Model tiburon1("resources/objects/Shark002OBJ/Correctshark002.obj");
 	Model tiburon2("resources/objects/shark_obj/shark_01.obj");
 
-	
+
 
 
 	//Fin modelos Miranda
-
 
 	//Inicialización de KeyFrames
 	for (int i = 0; i < MAX_FRAMES; i++)
@@ -893,7 +781,7 @@ int main()
 		//Modelos Dylan
 
 
-		//carrito
+//carrito
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcarrito_x, 0.0f, movcarrito_z));
 		model = glm::rotate(model, glm::radians(orientacarrito), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f));
@@ -1347,7 +1235,7 @@ int main()
 		staticShader.setMat4("model", model);
 		tiburon2.Draw(staticShader);
 
-	
+
 
 		//Fin Modelos Miranda*/
 
@@ -1355,6 +1243,8 @@ int main()
 
 
 	//Modelos Ariadna
+
+	//peces
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(50.0f, 5.0f, -200.0f));
 		model = glm::scale(model, glm::vec3(4.0f));
 		staticShader.setMat4("model", model);
@@ -1363,16 +1253,94 @@ int main()
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(60.0f, 5.0f, -200.0f));
 		model = glm::scale(model, glm::vec3(4.0f));
 		staticShader.setMat4("model", model);
-		fish2.Draw(staticShader); 
+		fish2.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(70.0f, 5.0f, -200.0f));
 		model = glm::scale(model, glm::vec3(4.0f));
 		staticShader.setMat4("model", model);
 		fish3.Draw(staticShader);
-		
+
+		//Aves
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-370.0f, 0.0f, 300.0f));
+		model = glm::rotate(model, glm::radians(60.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(16.0f));
+		staticShader.setMat4("model", model);
+		ave1.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-470.0f, 0.0f, 230.0f));
+		model = glm::rotate(model, glm::radians(60.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(16.0f));
+		staticShader.setMat4("model", model);
+		ave1.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-400.0f, 30.0f, 250.0f));
+		model = glm::rotate(model, glm::radians(60.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(16.0f));
+		staticShader.setMat4("model", model);
+		ave2.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-350.0f, 90.0f, 300.0f));
+		model = glm::rotate(model, glm::radians(75.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(16.0f));
+		staticShader.setMat4("model", model);
+		ave2.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-400.0f, 70.0f, 250.0f));
+		model = glm::rotate(model, glm::radians(340.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(16.0f));
+		staticShader.setMat4("model", model);
+		ave2.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-400.0f, 50.0f, 200.0f));
+		model = glm::rotate(model, glm::radians(340.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(16.0f));
+		staticShader.setMat4("model", model);
+		ave3.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-400.0f, 90.0f, 200.0f));
+		model = glm::rotate(model, glm::radians(300.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(16.0f));
+		staticShader.setMat4("model", model);
+		ave3.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-360.0f, 40.0f, 310.0f));
+		model = glm::rotate(model, glm::radians(280.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(16.0f));
+		staticShader.setMat4("model", model);
+		ave3.Draw(staticShader);
+
+		//Ãrea de comida
+		//comida hamburguesa
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(290.0f, 30.0f, 465.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(6.0f));
+		staticShader.setMat4("model", model);
+		comida.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(240.0f, 30.0f, 395.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(6.0f));
+		staticShader.setMat4("model", model);
+		comida.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(340.0f, 30.0f, 295.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(6.0f));
+		staticShader.setMat4("model", model);
+		comida.Draw(staticShader);
 
 
-	//Fin Modelos Ariadna
+		pecera.Draw(staticShader);
+
+
+
+
+
+		//Fin Modelos Ariadna
+
+
+
+		//Fin Modelos Ariadna
 
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Carro
@@ -1457,6 +1425,11 @@ int main()
 		model = glm::translate(model, glm::vec3(0.0f, 2.5f, 0));
 		staticShader.setMat4("model", model);
 		//cabeza.Draw(staticShader);
+
+
+		
+	
+
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Caja Transparente --- Siguiente Práctica
 		// -------------------------------------------------------------------------------------------------------------------------
@@ -1490,16 +1463,16 @@ int main()
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
-
+	
 	skybox.Terminate();
-
 	glfwTerminate();
+	engine->drop();
 	return 0;
 }
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
 // ---------------------------------------------------------------------------------------------------------
-void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
+void my_input(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
@@ -1536,21 +1509,19 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 	//Car animation
 	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
 		animacion ^= true;
+/*
+	//sonido aves
+	if (key == GLFW_KEY_O && action == GLFW_PRESS)
+		music();
 
 
-
-
-	//animacion cangrejo
-
-	if (key == GLFW_KEY_5 && action == GLFW_PRESS)
-		animacionC ^= true;
-
-	if (key == GLFW_KEY_6 && action == GLFW_PRESS)
-		animacionC ^= false;
-
-	if (key == GLFW_KEY_9 && action == GLFW_PRESS)
-		animacionB ^= true;
-
+	//sonido pinguino
+	if (key == GLFW_KEY_Z && action == GLFW_PRESS)
+		music2();
+	//sonido delfines
+	if (key == GLFW_KEY_K && action == GLFW_PRESS)
+		music3();
+*/
 	//To play KeyFrame animation 
 	if (key == GLFW_KEY_P && action == GLFW_PRESS)
 	{

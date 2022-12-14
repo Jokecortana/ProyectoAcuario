@@ -1,0 +1,114 @@
+newmtl Pigeon:lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Pigeon.jpg
+Ni 1.00
+Ks 0.02 0.02 0.02
+Ns 18.00
+newmtl Pigeon:phong2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00
+newmtl Pigeon:phong3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd feather_02.jpg
+Ni 1.00
+Ks 0.04 0.04 0.04
+Ns 18.00
+newmtl Pigeon:phong4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd feather.png
+Ni 1.00
+Ks 0.04 0.04 0.04
+Ns 18.00
+newmtl cge:___Default
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl cge:___Default2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl duck:Material__27
+illum 4
+Kd 1.00 0.61 0.61
+Ka 1.00 0.61 0.61
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.36 0.36 0.36
+Ns 30.00
+newmtl duck:Material__28
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd eye.jpg
+map_Ka eye.jpg
+Ni 1.50
+Ks 0.36 0.36 0.36
+Ns 30.00
+newmtl duck:Material__75
+illum 4
+Kd 0.20 0.11 0.03
+Ka 0.20 0.11 0.03
+Tf 1.00 1.00 1.00
+Ni 1.50
+Ks 0.36 0.36 0.36
+Ns 30.00
+newmtl duck:Material__133
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd body.jpg
+map_Ka body.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl duck:Material__146
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd foot.jpg
+map_Ka foot.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl duck:Material__148
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd lip.jpg
+map_Ka lip.jpg
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd WhatsApp_Image_2022-03-14_at_16.44.52.jpeg
+Ni 1.00
