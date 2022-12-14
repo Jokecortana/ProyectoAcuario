@@ -105,7 +105,10 @@ orientacrab = 0.0f,
 animpatascrab = 0.0f,
 patasbcrab = 0.0f,
 animpinzascrab = 0.0f,
-pinzascrab = 0.0f;
+pinzascrab = 0.0f,
+movcarrito_x=0.0f,
+movcarrito_z=450.0f,
+orientacarrito=0.0f;
 
 //animaciones pinguinos
 bool animacionP = true,
@@ -119,6 +122,18 @@ reco6 = false,
 reco7 = false,
 reco8 = false,
 reco9 = false;
+
+//animacion carrito
+bool animacionB = false,
+re1 = true,
+re2 = false,
+re3 = false,
+re4 = false,
+re5 = false,
+re6 = false,
+re7 = false,
+re8 = false,
+re9 = false;
 
 //animacion cangrejos
 bool animacionC = false,
@@ -353,8 +368,8 @@ void animate(void)
 
 
 	if (animacionC) {
-		//animacion patas
-		if (animpatascrab == 0) {//CAMBIAR PIVOTE
+		/*animacion patas
+		if (animpatascrab == 0) {
 			patasbcrab += 1.0f;
 			if (patasbcrab >= 2) {
 				animpatascrab = 1;
@@ -381,14 +396,14 @@ void animate(void)
 				animpinzascrab = 0;
 			}
 		}
-
+		*/
 
 
 		if (r1) {
-			movcrab_x += 17.0f;
+			movcrab_x -= 1.0f;
 			movcrab_z -= 1.0f;
 			orientacrab = -45.0f;
-			if (movcrab_x <= -400 && movcrab_z >= 400) {
+			if (movcrab_x <= -400) {
 				r1 = false;
 				r2 = true;
 			}
@@ -399,15 +414,150 @@ void animate(void)
 		}
 
 
-
+	
 
 
 	}
 
 
 
+	if (animacionB) {
+		
+		if (re1) {
 
-	
+			movcarrito_x = 0.0f;
+			movcarrito_z -= 3.0f;
+			orientacarrito = 0.0f;
+			if (movcarrito_z <= 300) {
+				re1 = false;
+				re2 = true;
+			}
+		}
+
+
+
+
+
+			if (re2) {
+				movcarrito_x += 1.5f;
+				movcarrito_z -= 1.0f;
+				orientacarrito = 33.69f;
+				if (movcarrito_x >= 150) {
+					re2 = false;
+					re3 = true;
+				}
+
+
+
+
+			}
+
+
+
+
+			if (re3) {
+				movcarrito_x = 150.0f;
+				movcarrito_z -= 1.0f;
+				orientacarrito = 90.0f;
+				if (movcarrito_z <= 0) {
+					re3 = false;
+					re4 = true;
+				}
+
+
+
+			}
+
+			if (re4) {
+				movcarrito_x = 150.0f;
+				movcarrito_z -= 1.0f;
+				orientacarrito = 90.0f;
+				if (movcarrito_z <= -150) {
+					re4 = false;
+					re5 = true;
+				}
+
+
+
+			}
+
+			if (re5) {
+				movcarrito_x -= 0.6f;
+				movcarrito_z -= 1.0f;
+				orientacarrito = 120.97f;
+				if (movcarrito_x <= 0) {
+					re5 = false;
+					re6 = true;
+				}
+
+
+
+			}
+
+			if (re6) {
+				movcarrito_x -= 0.6f;
+				movcarrito_z += 1.0f;
+				orientacarrito = 239.03f;
+				if (movcarrito_x <= -150.0) {
+					re6 = false;
+					re7 = true;
+				}
+
+
+
+			}
+
+			if (re7) {
+				movcarrito_x = -150.6f;
+				movcarrito_z += 1.0f;
+				orientacarrito = 270.0f;
+				if (movcarrito_z >= 0.0) {
+					re7 = false;
+					re8 = true;
+				}
+
+
+
+			}
+
+			if (re8) {
+				movcarrito_x = -150.0f;
+				movcarrito_z += 1.0f;
+				orientacarrito = 270.00f;
+				if (movcarrito_z >= 200.0) {
+					re8 = false;
+					re9 = true;
+				}
+
+
+
+			}
+
+			if (re9) {
+				movcarrito_x += 1.5f;
+				movcarrito_z += 1.0f;
+				orientacarrito = 323.13f;
+				if (movcarrito_x >= 0.0) {
+					re9 = false;
+					re2 = true;
+				}
+
+
+
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+		}
 
 
 
@@ -545,6 +695,14 @@ int main()
 	Model pinzascrabd("resources/objects/crab2/pinzader.obj");
 	Model pinzascrabi("resources/objects/crab2/pinzaizq.obj");
 
+
+
+	//carro basura
+	Model carrito("resources/objects/carrito/carro.obj");
+	Model llantasd("resources/objects/carrito/llanta1.obj");
+	Model llantaiz("resources/objects/carrito/llanta2.obj");
+	Model llantasi("resources/objects/carrito/llanta3.obj");
+	Model llantaid("resources/objects/carrito/llanta4.obj");
 
 /*
 	ModelAnim employe("resources/objects/empleado/Thoughtful Head Shake.dae");
@@ -733,6 +891,38 @@ int main()
 
 
 		//Modelos Dylan
+
+
+		//carrito
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcarrito_x, 0.0f, movcarrito_z));
+		model = glm::rotate(model, glm::radians(orientacarrito), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		carrito.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcarrito_x, 0.0f, movcarrito_z));
+		model = glm::rotate(model, glm::radians(orientacarrito), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		llantasd.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcarrito_x, 0.0f, movcarrito_z));
+		model = glm::rotate(model, glm::radians(orientacarrito), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		llantaiz.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcarrito_x, 0.0f, movcarrito_z));
+		model = glm::rotate(model, glm::radians(orientacarrito), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		llantasi.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(movcarrito_x, 0.0f, movcarrito_z));
+		model = glm::rotate(model, glm::radians(orientacarrito), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		llantaid.Draw(staticShader);
 
 		//Fuente
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
@@ -1357,6 +1547,9 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 
 	if (key == GLFW_KEY_6 && action == GLFW_PRESS)
 		animacionC ^= false;
+
+	if (key == GLFW_KEY_9 && action == GLFW_PRESS)
+		animacionB ^= true;
 
 	//To play KeyFrame animation 
 	if (key == GLFW_KEY_P && action == GLFW_PRESS)
